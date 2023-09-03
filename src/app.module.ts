@@ -14,6 +14,10 @@ import entities from './utils/typeorm';
       password: environments.dbPassword,
       database: environments.dbName,
       entities: entities,
+      ssl:
+        process.env.NODE_ENV === 'production'
+          ? { rejectUnauthorized: false }
+          : false,
       synchronize: true,
     }),
     AuthModule,
