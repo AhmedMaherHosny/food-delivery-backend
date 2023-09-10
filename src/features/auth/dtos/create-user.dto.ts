@@ -1,30 +1,22 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  Matches,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
-import { IsPhoneNumber } from 'src/utils/decorators/phone-number.decorator';
 import { UserType } from 'src/utils/types';
 
 export class CreateUserDto {
-  @IsNotEmpty()
+  /*@IsNotEmpty()
   @MinLength(3)
-  @MaxLength(16)
+  @MaxLength(16)*/
   username: string;
 
-  @IsNotEmpty()
+  /*@IsNotEmpty()
   @MinLength(2)
-  @MaxLength(32)
+  @MaxLength(32)*/
   firstName: string;
 
-  @IsNotEmpty()
+  /*@IsNotEmpty()
   @MinLength(2)
-  @MaxLength(32)
+  @MaxLength(32)*/
   lastName: string;
 
-  @IsNotEmpty()
+  /*@IsNotEmpty()
   @MinLength(8)
   @MaxLength(32)
   @Matches(
@@ -33,17 +25,17 @@ export class CreateUserDto {
       message:
         'Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
     },
-  )
+  )*/
   password: string;
 
-  @IsNotEmpty()
-  @IsEmail()
+  /*@IsNotEmpty()
+  @IsEmail()*/
   email: string;
 
-  @IsNotEmpty()
+  /*@IsNotEmpty()
   @IsPhoneNumber({
     message: 'The phone number must start with a ( + ) and country code',
-  })
+  })*/
   phoneNumber: string;
 }
 

@@ -1,6 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { Length } from 'class-validator';
 import { UserType } from 'src/utils/types';
 
 @Entity({ name: 'users' })
@@ -8,26 +7,31 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 16 })
-  @Length(3, 16)
+  //@Column({ length: 16 })
+  //@Length(3, 16)
+  @Column({ nullable: true })
   username: string;
 
-  @Column({ unique: true })
+  //@Column({ unique: true })
+  @Column({ nullable: true })
   email: string;
 
-  @Column({ length: 32 })
-  @Length(2, 32)
+  //@Column({ length: 32 })
+  //@Length(2, 32)
+  @Column({ nullable: true })
   firstName: string;
 
-  @Column({ length: 32 })
-  @Length(2, 32)
+  //@Column({ length: 32 })
+  //@Length(2, 32)
+  @Column({ nullable: true })
   lastName: string;
 
-  @Column()
+  @Column({ nullable: true })
   @Exclude()
   password: string;
 
-  @Column({ unique: true })
+  //@Column({ unique: true })
+  @Column({ nullable: true })
   phoneNumber: string;
 }
 
